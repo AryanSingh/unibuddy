@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
-var pluralize = require('pluralize');
 import data from './data.json';
+import {createHash} from "./Api/wordHashCreator";
 
 
 export class App extends Component {
 
 	componentDidMount(){
+		this.hashCreate()
 
 	}
+
+	hashCreate = () => {
+		let table = {};
+		data.summaries.map((summary) => {
+			table = createHash(table, summary)
+		});
+		console.log('table', table)
+	};
 
 
   render(){
