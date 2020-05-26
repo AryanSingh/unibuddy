@@ -53,10 +53,10 @@ export const find_common_elements = (...arr) => {
 	let array = Array.prototype.slice.call(arr);
 	let commonElements = [];
 
-	let firstArr = array[0]
+	let firstArr = array[0];
 
 	for(let i=1; i< array.length ; i++){
-		commonElements = []
+		commonElements = [];
 		for(let j = 0; j< firstArr.length; j++){
 			if(binary_Search(array[i], firstArr[j]) !== -1){
 				commonElements.push(firstArr[j])
