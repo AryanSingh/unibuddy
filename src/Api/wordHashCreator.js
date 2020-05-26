@@ -10,7 +10,7 @@ import {modified_binary_Search} from "./helpers";
 
 export const createHash = (hashObj, currentObj) => {
 
-	let newObj = {...hashObj}
+	let newObj = {...hashObj};
 
 	let modifiedSummary = ingester(removePlural, removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));
 	modifiedSummary.map((item) => {
@@ -21,10 +21,10 @@ export const createHash = (hashObj, currentObj) => {
 				// newObj[item].push(currentObj.id)
 			}
 		}else {
-			newObj[item] = []
+			newObj[item] = [];
 			newObj[item].push(currentObj.id)
 		}
-	})
+	});
 	// console.log('newOjb', newObj, currentObj)
 	return newObj;
 };
