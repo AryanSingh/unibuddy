@@ -4,6 +4,7 @@ import './App.css';
 import data from './data.json';
 import {createHash} from "./Api/wordHashCreator";
 import HomePage from './components/HomePage';
+import { find_relevant_results} from "./Api/helpers";
 
 export class App extends Component {
 
@@ -19,6 +20,7 @@ export class App extends Component {
 	componentDidUpdate(prevProps, prevState){
 		if(prevState.currentSearch !== this.state.currentSearch){
 			console.log('currentSearch', this.state.currentSearch)
+			this.doSearch();
 		}
 
 	}
@@ -32,7 +34,10 @@ export class App extends Component {
 	};
 
 	doSearch = () => {
-		
+		let searchArr = this.state.currentSearch.split(' ');
+		let results = find_relevant_results(this.state.table, searchArr);
+		console.log('results',results,this.state.table)
+		this.setState({ searchResults: results });
 	};
 
 	hashCreate = () => {

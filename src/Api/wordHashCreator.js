@@ -12,7 +12,7 @@ export const createHash = (hashObj, currentObj) => {
 
 	let newObj = {...hashObj};
 
-	let modifiedSummary = ingester(removePlural, removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));
+	let modifiedSummary = ingester( removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));
 	modifiedSummary.map((item) => {
 		if(item in newObj){
 			if(newObj[item].indexOf(currentObj.id) === -1){

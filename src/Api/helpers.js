@@ -49,8 +49,9 @@ export const binary_Search = function(items, value){
 	return (items[middleIndex] !== value) ? -1 : middleIndex;
 };
 
-export const find_common_elements = (...arr) => {
-	let array = Array.prototype.slice.call(arr);
+export const find_common_elements = (array) => {
+	// let array = Array.prototype.slice.call(arr);
+	console.log('array', array);
 	let commonElements = [];
 
 	let firstArr = array[0];
@@ -64,10 +65,22 @@ export const find_common_elements = (...arr) => {
 		}
 		firstArr = commonElements;
 	}
+	console.log('common elements', commonElements);
 	return commonElements;
 
 };
 
+export const find_relevant_results = (table, searchArr) => {
+	let tempArr = [];
+	// console.log('relevant results', table, searchArr)
+	searchArr.map((item) => {
+		console.log('item', table[item]);
+		if(table[item]){tempArr.push(table[item])}
+	});
+	return find_common_elements(tempArr)
+
+	
+};
 
 
-// console.log('common elements', find_common_elements([1, 2, 3, 4, 5], [2, 3, 4, 5], [3, 5, 7], [5, 7, 9]));
+console.log('common elements', find_common_elements([[1, 2, 3, 4, 5], [2, 3, 4, 5], [3, 5, 7], [5, 7, 9]]));
