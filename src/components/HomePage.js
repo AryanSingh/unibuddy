@@ -10,13 +10,6 @@ export class HomePage extends Component {
 
 	constructor(props){
 		super(props);
-		this.state={
-			list: [
-				"apple is red",
-				"banana is yellow",
-				"mango is ripe"
-			]
-		}
 	}
 
 	componentDidMount(){
@@ -31,16 +24,13 @@ export class HomePage extends Component {
 				{this.props.searchResults.map((result) => {
 					return(
 						<ListItem key={result.id}>
-							{result.title}
+							<ItemTitle>{result.title}</ItemTitle>
+							<ItemSummary>{result.summary}</ItemSummary>
 						</ListItem>
 						)
 				})}
 			</ListWrapper>
 		)
-	};
-
-	calculateResults = () => {
-
 	};
 
 	handleChange = (value) => {
@@ -139,7 +129,7 @@ const Input = styled.input`
 	font-family: Roboto;
 	font-size: 20px;
 	font-weight: 400;
-	padding-left: 60px;
+	padding: 0 30px 0 60px;
 	color: #000000;
 	background-color: #FFFFFF;
 	opacity: 1;
@@ -153,8 +143,14 @@ const SearchIcon = styled.div`
 `;
 
 const ListItem = styled(flexDefault)`
-	padding: 0 0 0 60px;
-  width: 40vw;
+	padding: 10px 30px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  &:hover{
+  	background-color: #ddd;
+  }
 `;
 
 const ListWrapper = styled.div`
@@ -163,4 +159,32 @@ const ListWrapper = styled.div`
 	background: #FFFFFF;
 	position: absolute;
 	top: 65px;
+	 max-height: 300px;
+  overflow-y: scroll;
+    overflow-x: hidden;
+    width: 100%;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+`;
+
+const ItemTitle = styled.p`
+	font-size: 18px;
+	font-weight: 500;
+	font-style: Roboto;
+	text-transform: capitalize;
+	margin: 0;
+`;
+
+
+const ItemSummary = styled.p`
+	font-size: 16px;
+	font-weight: 400;
+	font-style: Roboto;
+	text-transform: capitalize;
+	overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; 
+   -webkit-box-orient: vertical;
+   margin: 0;
 `;

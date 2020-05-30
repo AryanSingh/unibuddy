@@ -3,6 +3,7 @@ import {removePlural} from "./singularizeTokenizer";
 import {removePreposition} from "./prepsRemoveTokenizer";
 import {modified_binary_Search} from "./helpers";
 import {lowerCasing} from "./lowercasing";
+import {getAllSubstrings} from "./helpers";
 
 // {
 // 	"id": 1,
@@ -26,6 +27,19 @@ export const createHash = (hashObj, currentObj) => {
 			newObj[item].push(currentObj.id)
 		}
 	});
+
+	let allKeys = Object.keys(newObj);
+	let latestObj = {};
+	allKeys.map((key) => {
+		if(key.length >= 3){
+			let subStrings = getAllSubstrings(key)
+			subStrings.map(str =>  {
+				newObj[str] = newObj[key]
+			})
+		}
+	});
+
+
 	// console.log('newOjb', newObj, currentObj)
 	return newObj;
 };

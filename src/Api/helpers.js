@@ -55,6 +55,9 @@ export const find_common_elements = (array) => {
 	let commonElements = [];
 
 	let firstArr = array[0];
+	if(array.length === 1){
+		return array[0]
+	}
 
 	for(let i=1; i< array.length ; i++){
 		commonElements = [];
@@ -70,12 +73,32 @@ export const find_common_elements = (array) => {
 
 };
 
+export const getAllSubstrings = (str) => {
+	let i, j, result = [];
+
+	for (i = 0; i < str.length; i++) {
+		for (j = i + 1; j < str.length + 1; j++) {
+			if(j - i >= 3){
+				result.push(str.slice(i, j));
+			}
+		}
+	}
+	return result;
+}
+
+
 export const find_relevant_results = (table, searchArr) => {
 	let tempArr = [];
 	// console.log('relevant results', table, searchArr)
+	let allKeys = Object.keys(table);
+
+	
 	searchArr.map((item) => {
-		console.log('item', table[item]);
+		// console.log('item', table[item]);
 		if(table[item]){tempArr.push(table[item])}
+		else{
+
+		}
 	});
 
 	return find_common_elements(tempArr)
@@ -85,4 +108,4 @@ export const find_relevant_results = (table, searchArr) => {
 };
 
 
-console.log('common elements', find_common_elements([[1, 2, 3, 4, 5], [2, 3, 4, 5], [3, 5, 7], [5, 7, 9]]));
+// console.log('common elements', find_common_elements([[1, 2, 3, 4, 5], [2, 3, 4, 5], [3, 5, 7], [5, 7, 9]]));
