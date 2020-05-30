@@ -2,6 +2,7 @@ import {ingester} from "./ingester";
 import {removePlural} from "./singularizeTokenizer";
 import {removePreposition} from "./prepsRemoveTokenizer";
 import {modified_binary_Search} from "./helpers";
+import {lowerCasing} from "./lowercasing";
 
 // {
 // 	"id": 1,
@@ -12,7 +13,7 @@ export const createHash = (hashObj, currentObj) => {
 
 	let newObj = {...hashObj};
 
-	let modifiedSummary = ingester( removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));
+	let modifiedSummary = ingester(lowerCasing, removePlural, removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));
 	modifiedSummary.map((item) => {
 		if(item in newObj){
 			if(newObj[item].indexOf(currentObj.id) === -1){

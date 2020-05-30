@@ -77,7 +77,9 @@ export const find_relevant_results = (table, searchArr) => {
 		console.log('item', table[item]);
 		if(table[item]){tempArr.push(table[item])}
 	});
+
 	return find_common_elements(tempArr)
+
 
 	
 };

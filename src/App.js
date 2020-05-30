@@ -36,8 +36,18 @@ export class App extends Component {
 	doSearch = () => {
 		let searchArr = this.state.currentSearch.split(' ');
 		let results = find_relevant_results(this.state.table, searchArr);
-		console.log('results',results,this.state.table)
-		this.setState({ searchResults: results });
+		console.log('results',results,this.state.table);
+		this.setResults(results);
+	};
+
+	setResults = (searchResults) => {
+		let resultsArr = [];
+		searchResults.map((result) => {
+			resultsArr.push({ id: result, title: data.titles[result]})
+		});
+		console.log(resultsArr);
+		this.setState({ searchResults: resultsArr });
+
 	};
 
 	hashCreate = () => {
@@ -53,7 +63,7 @@ export class App extends Component {
   render(){
 		return (
       <div className="App" >
-        <HomePage setCurrentSearch={this.setCurrentSearch} hashTable={this.state.table} />
+        <HomePage setCurrentSearch={this.setCurrentSearch} hashTable={this.state.table} searchResults={this.state.searchResults} />
       </div>
 		);
   }

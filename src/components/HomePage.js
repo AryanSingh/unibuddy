@@ -23,13 +23,15 @@ export class HomePage extends Component {
 
 	}
 
+
+
 	renderList = () => {
 		return(
 			<ListWrapper>
-				{this.state.list.map((item) => {
+				{this.props.searchResults.map((result) => {
 					return(
-						<ListItem key={item}>
-							{item}
+						<ListItem key={result.id}>
+							{result.title}
 						</ListItem>
 						)
 				})}
