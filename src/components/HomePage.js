@@ -79,7 +79,7 @@ export class HomePage extends Component {
 						</IconTextContainer>
 						<InputContainer>
 							<SearchIcon>
-							<IconContext.Provider value={{ color: "#000000", className: "global-class-name", size: 40 }}>
+							<IconContext.Provider value={{ color: "#2874F0", className: "global-class-name", size: 20 }}>
 								<BsSearch/>
 							</IconContext.Provider>
 							</SearchIcon>
@@ -113,7 +113,7 @@ const flexDefault = styled.div`
 `;
 
 const Wrapper = styled.div`
-	width: 90%;
+	width: 100%;
 	margin: auto;
 	background-color: #FFFFFF;
 `;
@@ -130,15 +130,20 @@ const IconTextContainer = styled.div`
 
 const Header = styled.div`
 	width: 100%;
-	background-color: #000000;
+	background-color: #2874F0;
 	display: flex;
 	@media(min-width: 320px){
 		display: block;
+				height: 112px;
+
+
 	}
 	@media(min-width: 800px){
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+				height: 56px;
+
 	}
 	
 	
@@ -172,7 +177,7 @@ const InputContainer = styled(flexDefault)`
   @media(min-width: 320px){
 		width: 100%;
 	}
-	@media(min-width: 768px){
+	@media(min-width: 800px){
 		width: 50%;
 		left: 50%;
   	transform: translate(-50%, 0);
@@ -190,6 +195,11 @@ const Input = styled.input`
 	opacity: 1;
 	outline: none;
 	width: 100%;
+	border-radius: 2px 0 0 2px;
+	border: 0;
+	outline: 0 none;
+	font-size: 14px;
+	height: 36px;
 	
 `;
 
