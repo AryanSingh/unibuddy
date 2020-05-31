@@ -10,7 +10,10 @@ export class HomePage extends Component {
 
 	constructor(props){
 		super(props);
-	}
+		this.state={
+			selectedBooks: []
+
+	};
 
 	componentDidMount(){
 
@@ -23,7 +26,7 @@ export class HomePage extends Component {
 			<ListWrapper>
 				{this.props.searchResults.map((result) => {
 					return(
-						<ListItem key={result.id}>
+						<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
 							<ItemTitle>{result.title}</ItemTitle>
 							<ItemSummary>{result.summary}</ItemSummary>
 						</ListItem>
@@ -36,6 +39,10 @@ export class HomePage extends Component {
 	handleChange = (value) => {
 		console.log('value change', value);
 		this.props.setCurrentSearch(value)
+	};
+
+	suggestionClickHandler = (result) => {
+		this.state.selectedBooks.filter()
 	};
 
 	render(){
@@ -160,11 +167,13 @@ const ListWrapper = styled.div`
 	background: #FFFFFF;
 	position: absolute;
 	top: 65px;
-	 max-height: 300px;
+	max-height: 300px;
   overflow-y: scroll;
-    overflow-x: hidden;
-    width: 100%;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	overflow-x: hidden;
+	width: 100%;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	cursor: pointer;
+      
 
 `;
 
