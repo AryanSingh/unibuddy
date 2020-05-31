@@ -133,17 +133,18 @@ const Header = styled.div`
 	background-color: #2874F0;
 	display: flex;
 	@media(min-width: 320px){
-		display: block;
-				height: 112px;
-
-
+		display: flex;
+    height: 112px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 	}
 	@media(min-width: 800px){
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-				height: 56px;
-
+		height: 56px;
+		justify-content: inherit;
 	}
 	
 	
@@ -168,6 +169,12 @@ const HeaderText = styled.p`
 	font-weight: 500;
 	color: #FFFFFF;
 	letter-spacing: .1rem;
+	@media(min-width: 320px){
+		margin: 0;
+	}
+	@media(min-width: 800px){
+		margin: inherit;
+	}
 `;
 
 
@@ -175,7 +182,7 @@ const InputContainer = styled(flexDefault)`
 	position: relative;
 	
   @media(min-width: 320px){
-		width: 100%;
+		width: 90%;
 	}
 	@media(min-width: 800px){
 		width: 50%;
