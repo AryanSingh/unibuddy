@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { TiMessages } from 'react-icons/ti';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from "react-icons";
+import BookCard from './BookCard';
 
 
 
@@ -10,8 +11,10 @@ export class HomePage extends Component {
 
 	constructor(props){
 		super(props);
-		this.state={
-			selectedBooks: []
+		this.state= {
+			selectedBooks: [],
+			inputValue:''
+		}
 
 	};
 
@@ -37,12 +40,26 @@ export class HomePage extends Component {
 	};
 
 	handleChange = (value) => {
-		console.log('value change', value);
-		this.props.setCurrentSearch(value)
+		// console.log('value change', value);
+		this.setState({
+			inputValue: value
+		});
+
+		this.props.setCurrentSearch(value);
 	};
 
 	suggestionClickHandler = (result) => {
-		this.state.selectedBooks.filter()
+		if(this.state.selectedBooks.filter(book => book.id=== result.id).length === 0){
+			let newBooks = [...this.state.selectedBooks, result]
+			this.setState({ selectedBooks: newBooks })
+		}
+		this.props.clearSearch();
+		this.setState({inputValue: ''})
+	};
+
+	deleteBook = (book) => {
+		let newBooks = this.state.selectedBooks.filter(item => book.id !== item.id);
+		this.setState({ selectedBooks: newBooks })
 	};
 
 	render(){
@@ -50,24 +67,30 @@ export class HomePage extends Component {
 			<HomeContainer>
 				<Wrapper>
 					<Header>
-						<IconContainer>
-							<IconContext.Provider value={{ color: "#FFFFFF", className: "global-class-name", size: 40 }}>
-							<TiMessages />
-							</IconContext.Provider>
-						</IconContainer>
-						<HeaderTextWrapper>
-							<HeaderText>Unibuddy</HeaderText>
-						</HeaderTextWrapper>
+						<IconTextContainer>
+							<IconContainer>
+								<IconContext.Provider value={{ color: "#FFFFFF", className: "global-class-name", size: 40 }}>
+								<TiMessages />
+								</IconContext.Provider>
+							</IconContainer>
+							<HeaderTextWrapper>
+								<HeaderText>Unibuddy</HeaderText>
+							</HeaderTextWrapper>
+						</IconTextContainer>
 						<InputContainer>
 							<SearchIcon>
 							<IconContext.Provider value={{ color: "#000000", className: "global-class-name", size: 40 }}>
 								<BsSearch/>
 							</IconContext.Provider>
 							</SearchIcon>
-							<Input onChange={(event) => this.handleChange(event.target.value)}/>
+							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue}/>
 							{this.renderList()}
 						</InputContainer>
 					</Header>
+					<Content>
+
+						{this.state.selectedBooks.map((book, index) => <BookCard index={index} book={book} />)}
+					</Content>
 				</Wrapper>
 			</HomeContainer>
 		);
@@ -95,19 +118,38 @@ const Wrapper = styled.div`
 	background-color: #FFFFFF;
 `;
 
-const Header = styled.div`
-	height: 100px;
-	width: 100%;
-	background-color: #000000;
+const IconTextContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	
+	@media(min-width: 320px){
+		justify-content: center;
+	}
+`;
+
+const Header = styled.div`
+	width: 100%;
+	background-color: #000000;
+	display: flex;
+	@media(min-width: 320px){
+		display: block;
+	}
+	@media(min-width: 800px){
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	
+	
 	text-transform: uppercase;
 	position: relative;
 `;
 
 const IconContainer = styled(flexDefault)`
 	margin-left: 10px;
+	
+	
 	
 `;
 
@@ -126,12 +168,18 @@ const HeaderText = styled.p`
 
 const InputContainer = styled(flexDefault)`
 	position: relative;
-	left: 50%;
-  transform: translate(-50%, 0);
+	
+  @media(min-width: 320px){
+		width: 100%;
+	}
+	@media(min-width: 768px){
+		width: 50%;
+		left: 50%;
+  	transform: translate(-50%, 0);
+	}
 `;
 
 const Input = styled.input`
-	width: 40vw;
 	height: 60px;
 	font-family: Roboto;
 	font-size: 20px;
@@ -141,6 +189,7 @@ const Input = styled.input`
 	background-color: #FFFFFF;
 	opacity: 1;
 	outline: none;
+	width: 100%;
 	
 `;
 
@@ -192,9 +241,18 @@ const ItemSummary = styled.p`
 	font-style: Roboto;
 	text-transform: capitalize;
 	overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 2; 
-   -webkit-box-orient: vertical;
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
    margin: 0;
+`;
+
+
+const Content = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	flex-wrap: wrap;
+
 `;

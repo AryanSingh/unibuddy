@@ -19,7 +19,7 @@ export class App extends Component {
 
 	componentDidUpdate(prevProps, prevState){
 		if(prevState.currentSearch !== this.state.currentSearch){
-			console.log('currentSearch', this.state.currentSearch)
+			console.log('currentSearch', this.state.currentSearch);
 			this.doSearch();
 		}
 
@@ -31,6 +31,13 @@ export class App extends Component {
 
 	setCurrentSearch = (search) => {
 		this.setState({ currentSearch: search })
+	};
+
+	clearSearch = () => {
+		this.setState({
+			currentSearch: '',
+			searchResults: []
+		})
 	};
 
 	doSearch = () => {
@@ -63,7 +70,7 @@ export class App extends Component {
   render(){
 		return (
       <div className="App" >
-        <HomePage setCurrentSearch={this.setCurrentSearch} hashTable={this.state.table} searchResults={this.state.searchResults} />
+        <HomePage setCurrentSearch={this.setCurrentSearch} hashTable={this.state.table} searchResults={this.state.searchResults} clearSearch={this.clearSearch}  />
       </div>
 		);
   }
