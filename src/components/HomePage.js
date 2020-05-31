@@ -133,6 +133,7 @@ const Input = styled.input`
 	color: #000000;
 	background-color: #FFFFFF;
 	opacity: 1;
+	outline: none;
 	
 `;
 

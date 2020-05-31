@@ -3,7 +3,7 @@ import {removePlural} from "./singularizeTokenizer";
 import {removePreposition} from "./prepsRemoveTokenizer";
 import {modified_binary_Search} from "./helpers";
 import {lowerCasing} from "./lowercasing";
-import {getAllSubstrings} from "./helpers";
+import {getAllSubstrings, mergeSortedArray } from "./helpers";
 
 // {
 // 	"id": 1,
@@ -34,7 +34,11 @@ export const createHash = (hashObj, currentObj) => {
 		if(key.length >= 3){
 			let subStrings = getAllSubstrings(key)
 			subStrings.map(str =>  {
-				newObj[str] = newObj[key]
+				if(!newObj[str]){
+					newObj[str] = newObj[key]
+				} else {
+					newObj[str] = mergeSortedArray(newObj[str], newObj[key])
+				}
 			})
 		}
 	});

@@ -84,7 +84,43 @@ export const getAllSubstrings = (str) => {
 		}
 	}
 	return result;
-}
+};
+
+export const mergeSortedArray = (a, b) => {
+	var sorted = [], indexA = 0, indexB = 0;
+
+	while (indexA < a.length && indexB < b.length) {
+		if (sortFn(a[indexA], b[indexB]) > 0 && sorted.indexOf(b[indexB]) === -1) {
+			sorted.push(b[indexB++]);
+		} else if(sorted.indexOf(b[indexA]) === -1) {
+			sorted.push(a[indexA++]);
+		}
+	}
+
+	if (indexB < b.length) {
+		for(let i=indexB; i<b.length; i++){
+			if(sorted.indexOf(b[i]) === -1){
+				sorted.push(b[i])
+			}
+		}
+		// sorted = sorted.concat(b.slice(indexB));
+	} else {
+		for(let i=indexA; i<a.length; i++){
+			if(sorted.indexOf(a[i]) === -1){
+				sorted.push(a[i])
+			}
+		}
+		// sorted = sorted.concat(a.slice(indexA));
+	}
+
+	return sorted;
+};
+
+export const sortFn = (a, b) => {
+	return a - b;
+};
+
+// console.log(mergeSortedArray([1,2,3,5,9],[4,6,7,8]));
 
 
 export const find_relevant_results = (table, searchArr) => {
