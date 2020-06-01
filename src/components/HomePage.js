@@ -306,7 +306,7 @@ const Content = styled.div`
 	width: 100%;
 	flex-wrap: wrap;
 	margin-top: 70px;
-	justify-content: center;
+	justify-content: flex-start;
 	
 	@media(min-width: 320px){
 		margin-top: 130px;
