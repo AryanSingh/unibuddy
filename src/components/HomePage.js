@@ -26,10 +26,13 @@ export class HomePage extends Component {
 
 	componentWillMount(){
 		document.addEventListener('mousedown', this.handleClick, false);
+		window.addEventListener('resize', this.setCoords, false);
 	}
 
 	componentWillUnmount(){
-		document.addEventListener('mousedown', this.handleClick, false);
+		document.removeEventListener('mousedown', this.handleClick, false);
+		window.removeEventListener('resize', this.setCoords, false);
+
 
 	}
 
@@ -42,14 +45,19 @@ export class HomePage extends Component {
 	}
 
 	componentDidMount(){
+		this.setCoords();
+	}
+
+
+	setCoords = () => {
 		const rect = this.inputRef.current.getBoundingClientRect();
 		this.setState({dropdownCords: {
 			left: rect.x ,
 			top: rect.y,
-			width: rect.width
+			width: rect.width,
+			height: rect.height
 		}}, () => console.log('state', this.state));
-	}
-
+	};
 
 	renderList = () => {
 		return(
@@ -182,9 +190,6 @@ const Header = styled.div`
 
 const IconContainer = styled(flexDefault)`
 	margin-left: 10px;
-	
-	
-	
 `;
 
 const HeaderTextWrapper = styled(flexDefault)`
@@ -261,7 +266,6 @@ const ListWrapper = styled.div`
 	flex-direction: column;
 	background: #FFFFFF;
 	position: absolute;
-	top: 65px;
 	max-height: 300px;
   overflow-y: scroll;
 	overflow-x: hidden;
@@ -270,6 +274,7 @@ const ListWrapper = styled.div`
 	z-index: 1000;
 	width:  ${props => props.cords.width}px;
 	left : ${props => props.cords.left}px;
+	top: ${props => props.cords.top + props.cords.height +5}px;
 `;
 
 const ItemTitle = styled.p`
