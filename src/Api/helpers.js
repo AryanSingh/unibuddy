@@ -120,6 +120,13 @@ export const sortFn = (a, b) => {
 	return a - b;
 };
 
+export const modifySummary = (str) => {
+	if(str.length > 500){
+		return str.slice(0, 500) + '...'
+	}
+	return str;
+};
+
 // console.log(mergeSortedArray([1,2,3,5,9],[4,6,7,8]));
 
 

@@ -4,6 +4,8 @@ import { TiMessages } from 'react-icons/ti';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from "react-icons";
 import BookCard from './BookCard';
+import Trap from 'react-trap'
+
 
 
 
@@ -13,29 +15,49 @@ export class HomePage extends Component {
 		super(props);
 		this.state= {
 			selectedBooks: [],
-			inputValue:''
+			inputValue:'',
+			listOpen: false
 		}
 
 	};
+
+	componentWillMount(){
+		document.addEventListener('mousedown', this.handleClick, false);
+	}
+
+	componentWillUnmount(){
+		document.addEventListener('mousedown', this.handleClick, false);
+	}
+
+	handleClick = (e) => {
+		if(this.node.contains(e.target)){
+			return
+		} else {
+			this.props.clearSearch();
+		}
+	}
 
 	componentDidMount(){
 
 	}
 
 
-
 	renderList = () => {
 		return(
-			<ListWrapper>
-				{this.props.searchResults.map((result) => {
-					return(
-						<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
-							<ItemTitle>{result.title}</ItemTitle>
-							<ItemSummary>{result.summary}</ItemSummary>
-						</ListItem>
+
+
+					<ListWrapper ref={node => this.node = node}>
+					{this.props.searchResults.map((result) => {
+						return(
+							<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
+								<ItemTitle>{result.title}</ItemTitle>
+								<ItemSummary>{result.summary}</ItemSummary>
+							</ListItem>
 						)
-				})}
-			</ListWrapper>
+					})}
+					</ListWrapper>
+
+
 		)
 	};
 
@@ -84,12 +106,12 @@ export class HomePage extends Component {
 							</IconContext.Provider>
 							</SearchIcon>
 							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue}/>
+
 							{this.renderList()}
 						</InputContainer>
 					</Header>
 					<Content>
-
-						{this.state.selectedBooks.map((book, index) => <BookCard index={index} book={book} />)}
+							{this.state.selectedBooks.map((book, index) => <BookCard index={index} book={book} deleteBook={this.deleteBook}/>)}
 					</Content>
 				</Wrapper>
 			</HomeContainer>
@@ -103,7 +125,7 @@ export default HomePage;
 const HomeContainer = styled.div`
 	background-color: #FFFFFF;
 	width: 100%;
-	height: 200vh;
+	min-height: 100vh;
 `;
 
 const flexDefault = styled.div`
@@ -113,7 +135,7 @@ const flexDefault = styled.div`
 `;
 
 const Wrapper = styled.div`
-	width: 100%;
+	width: 90%;
 	margin: auto;
 	background-color: #FFFFFF;
 `;
@@ -132,6 +154,7 @@ const Header = styled.div`
 	width: 100%;
 	background-color: #2874F0;
 	display: flex;
+	position: fixed;
 	@media(min-width: 320px){
 		display: flex;
     height: 112px;
@@ -206,8 +229,9 @@ const Input = styled.input`
 	border: 0;
 	outline: 0 none;
 	font-size: 14px;
+	font-family: Roboto;
+	font-weight: 400;
 	height: 36px;
-	
 `;
 
 const SearchIcon = styled.div`
@@ -239,8 +263,7 @@ const ListWrapper = styled.div`
 	width: 100%;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	cursor: pointer;
-      
-
+	z-index: 1000;
 `;
 
 const ItemTitle = styled.p`
@@ -271,5 +294,17 @@ const Content = styled.div`
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
+	margin-top: 20px;
+	justify-content: center;
 
 `;
+
+const BookListWrapper = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	flex-wrap: wrap;
+	margin-top: 20px;
+	justify-content: center;
+	position: relative;
+`
