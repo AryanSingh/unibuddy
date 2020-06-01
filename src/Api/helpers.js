@@ -1,3 +1,5 @@
+import {removePreposition} from "./tokenizer/prepsRemoveTokenizer";
+
 export const modified_binary_Search = function(items, value){
 	let firstIndex  = 0,
 		lastIndex   = items.length - 1,
@@ -134,9 +136,10 @@ export const find_relevant_results = (table, searchArr) => {
 	let tempArr = [];
 	// console.log('relevant results', table, searchArr)
 	let allKeys = Object.keys(table);
+	let newSearchArr = removePreposition(searchArr);
 
 	
-	searchArr.map((item) => {
+	newSearchArr.map((item) => {
 		// console.log('item', table[item]);
 		if(table[item]){tempArr.push(table[item])}
 		else{

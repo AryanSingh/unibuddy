@@ -42,7 +42,7 @@ export class HomePage extends Component {
 		} else {
 			this.props.clearSearch();
 		}
-	}
+	};
 
 	componentDidMount(){
 		this.setCoords();
@@ -89,7 +89,7 @@ export class HomePage extends Component {
 			this.setState({ selectedBooks: newBooks })
 		}
 		this.props.clearSearch();
-		this.setState({inputValue: ''})
+		this.setState({inputValue: '', listOpen: false})
 	};
 
 	deleteBook = (book) => {
