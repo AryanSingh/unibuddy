@@ -21,7 +21,7 @@ const BookCard = (props) => {
 			<SummaryWrapper>
 				<Summary>{modifySummary(props.book.summary)}</Summary>
 			</SummaryWrapper>
-			<IconContainer onClick={() => this.props.deleteBook(props.book)}>
+			<IconContainer onClick={() => props.deleteBook(props.book)}>
 				<IconContext.Provider value={{ color: "#FD4141", className: "global-class-name", size: 20 }}>
 					<MdDelete  />
 				</IconContext.Provider>
@@ -40,6 +40,7 @@ export const Wrapper = styled.div`
   padding: 10px;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2; 
+  position: relative;
 	
 	@media(min-width: 320px){
 		width: 90%;
@@ -88,7 +89,9 @@ const Summary = styled.p`
 `;
 
 const IconContainer = styled.div`
-	
+	position: absolute;
+	right: 10px;
+	top: 5px;
 `;
 
 const InsideWrapper = styled.div`
