@@ -1,5 +1,5 @@
 export const modified_binary_Search = function(items, value){
-	var firstIndex  = 0,
+	let firstIndex  = 0,
 		lastIndex   = items.length - 1,
 		middleIndex = Math.floor((lastIndex + firstIndex)/2);
 
@@ -148,6 +148,14 @@ export const find_relevant_results = (table, searchArr) => {
 
 
 	
+};
+
+
+export const lowerCasing = (arr) => {
+	// console.log('arr', arr, typeof arr)
+	return(arr.map((item) => {
+		return item.toLowerCase()
+	}))
 };
 
 

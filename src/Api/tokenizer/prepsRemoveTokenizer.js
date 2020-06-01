@@ -1,4 +1,4 @@
-import {prepsList} from "../constants";
+import {prepsList} from "../../constants";
 
 export const removePreposition = (arr) => {
 	// console.log('arr', arr, typeof arr)

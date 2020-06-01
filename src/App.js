@@ -19,7 +19,6 @@ export class App extends Component {
 
 	componentDidUpdate(prevProps, prevState){
 		if(prevState.currentSearch !== this.state.currentSearch){
-			console.log('currentSearch', this.state.currentSearch);
 			this.doSearch();
 		}
 
@@ -43,7 +42,6 @@ export class App extends Component {
 	doSearch = () => {
 		let searchArr = this.state.currentSearch.split(' ');
 		let results = find_relevant_results(this.state.table, searchArr);
-		console.log('results',results,this.state.table);
 		this.setResults(results);
 	};
 
@@ -52,7 +50,6 @@ export class App extends Component {
 		searchResults.map((result) => {
 			resultsArr.push({ id: result, title: data.titles[result], summary: data.summaries[result]['summary']})
 		});
-		console.log(resultsArr);
 		this.setState({ searchResults: resultsArr });
 
 	};
@@ -63,7 +60,6 @@ export class App extends Component {
 			table = createHash(table, summary)
 		});
 		this.setState({ table: table });
-		console.log('table', table)
 	};
 
 
@@ -71,7 +67,6 @@ export class App extends Component {
 		return (
       <div className="App" >
         <HomePage setCurrentSearch={this.setCurrentSearch} hashTable={this.state.table} searchResults={this.state.searchResults} clearSearch={this.clearSearch}  />
-				<div id="portal-root"></div>
       </div>
 		);
   }
