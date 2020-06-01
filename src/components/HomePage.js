@@ -4,6 +4,7 @@ import { TiMessages } from 'react-icons/ti';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from "react-icons";
 import BookCard from './BookCard';
+import Portal from './PortalWrapper';
 import Trap from 'react-trap'
 
 
@@ -16,8 +17,10 @@ export class HomePage extends Component {
 		this.state= {
 			selectedBooks: [],
 			inputValue:'',
-			listOpen: false
-		}
+			listOpen: false,
+			dropdownCords: {}
+		};
+		this.inputRef = React.createRef();
 
 	};
 
@@ -27,6 +30,7 @@ export class HomePage extends Component {
 
 	componentWillUnmount(){
 		document.addEventListener('mousedown', this.handleClick, false);
+
 	}
 
 	handleClick = (e) => {
@@ -38,26 +42,27 @@ export class HomePage extends Component {
 	}
 
 	componentDidMount(){
-
+		const rect = this.inputRef.current.getBoundingClientRect();
+		this.setState({dropdownCords: {
+			left: rect.x ,
+			top: rect.y,
+			width: rect.width
+		}}, () => console.log('state', this.state));
 	}
 
 
 	renderList = () => {
 		return(
-
-
-					<ListWrapper ref={node => this.node = node}>
-					{this.props.searchResults.map((result) => {
-						return(
-							<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
-								<ItemTitle>{result.title}</ItemTitle>
-								<ItemSummary>{result.summary}</ItemSummary>
-							</ListItem>
-						)
-					})}
-					</ListWrapper>
-
-
+			<ListWrapper ref={node => this.node = node} cords={this.state.dropdownCords}>
+				{this.props.searchResults.map((result) => {
+					return(
+						<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
+							<ItemTitle>{result.title}</ItemTitle>
+							<ItemSummary>{result.summary}</ItemSummary>
+						</ListItem>
+					)
+				})}
+			</ListWrapper>
 		)
 	};
 
@@ -89,7 +94,7 @@ export class HomePage extends Component {
 			<HomeContainer>
 				<Wrapper>
 					<Header>
-						<IconTextContainer>
+						<IconTextContainer >
 							<IconContainer>
 								<IconContext.Provider value={{ color: "#FFFFFF", className: "global-class-name", size: 40 }}>
 								<TiMessages />
@@ -99,15 +104,16 @@ export class HomePage extends Component {
 								<HeaderText>Unibuddy</HeaderText>
 							</HeaderTextWrapper>
 						</IconTextContainer>
-						<InputContainer>
+						<InputContainer ref={this.inputRef}>
 							<SearchIcon>
 							<IconContext.Provider value={{ color: "#2874F0", className: "global-class-name", size: 20 }}>
 								<BsSearch/>
 							</IconContext.Provider>
 							</SearchIcon>
 							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue}/>
-
-							{this.renderList()}
+							<Portal>
+							{this.state.dropdownCords.width && this.renderList()}
+							</Portal>
 						</InputContainer>
 					</Header>
 					<Content>
@@ -260,10 +266,11 @@ const ListWrapper = styled.div`
 	max-height: 300px;
   overflow-y: scroll;
 	overflow-x: hidden;
-	width: 100%;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	cursor: pointer;
 	z-index: 1000;
+	width:  ${props => props.cords.width}px;
+	left : ${props => props.cords.left}px;
 `;
 
 const ItemTitle = styled.p`

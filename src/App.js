@@ -71,6 +71,7 @@ export class App extends Component {
 		return (
       <div className="App" >
         <HomePage setCurrentSearch={this.setCurrentSearch} hashTable={this.state.table} searchResults={this.state.searchResults} clearSearch={this.clearSearch}  />
+				<div id="portal-root"></div>
       </div>
 		);
   }
