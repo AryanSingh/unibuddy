@@ -55,6 +55,7 @@ export const Wrapper = styled.div`
 		margin-left: 5%;
 		margin-right: 5%;
 		height: 300px;
+		
 	}
 	@media(min-width: 1024px){
 		width: 30%;

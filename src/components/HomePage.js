@@ -313,6 +313,11 @@ const Content = styled.div`
 	}
 	@media(min-width: 800px){
 		margin-top: 70px;
+		justify-content: center;
+	}
+	@media(min-width: 1024px){
+		margin-top: 70px;
+		justify-content: flex-start;
 	}
 	
 
