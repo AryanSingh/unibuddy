@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e1347d-4540-42c3-92b5-975e925d9f0b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Api/lowercasing.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Api/prepsRemoveTokenizer.js" afterPath="$PROJECT_DIR$/src/Api/tokenizer/prepsRemoveTokenizer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Api/singularizeTokenizer.js" afterPath="$PROJECT_DIR$/src/Api/tokenizer/singularizeTokenizer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/helpers.js" afterPath="$PROJECT_DIR$/src/Api/helpers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/wordHashCreator.js" afterPath="$PROJECT_DIR$/src/Api/wordHashCreator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HomePage.js" afterPath="$PROJECT_DIR$/src/components/HomePage.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HomePage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HomePage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/HomePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1378">
-              <caret line="272" column="40" lean-forward="false" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
+            <state relative-caret-position="379">
+              <caret line="163" column="16" lean-forward="false" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="16" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -80,7 +74,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wordHashCreator.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wordHashCreator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Api/wordHashCreator.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
@@ -138,7 +132,6 @@
       <find>Wrapper</find>
       <find>display</find>
       <find>BsSearch</find>
-      <find>Header</find>
       <find>320px</find>
       <find>112px</find>
       <find>height</find>
@@ -149,6 +142,7 @@
       <find>IconContainer</find>
       <find>listWrapper</find>
       <find>renderLi</find>
+      <find>Header</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -172,11 +166,11 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/OutsiderAlert.js" />
         <option value="$PROJECT_DIR$/src/components/PortalWrapper.js" />
-        <option value="$PROJECT_DIR$/src/components/HomePage.js" />
         <option value="$PROJECT_DIR$/src/components/BookCard.js" />
         <option value="$PROJECT_DIR$/src/Api/helpers.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Api/wordHashCreator.js" />
+        <option value="$PROJECT_DIR$/src/components/HomePage.js" />
       </list>
     </option>
   </component>
@@ -350,12 +344,12 @@
       <workItem from="1590914977377" duration="13397000" />
       <workItem from="1590935108339" duration="11840000" />
       <workItem from="1590974479379" duration="2037000" />
-      <workItem from="1590990116493" duration="7536000" />
+      <workItem from="1590990116493" duration="9043000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102883000" />
+    <option name="totallyTimeSpent" value="104390000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -735,16 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/HomePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1378">
-          <caret line="272" column="40" lean-forward="false" selection-start-line="272" selection-start-column="40" selection-end-line="272" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/BookCard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="552">
@@ -795,6 +779,16 @@
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/HomePage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="163" column="16" lean-forward="false" selection-start-line="163" selection-start-column="16" selection-end-line="163" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

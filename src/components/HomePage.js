@@ -141,7 +141,7 @@ const flexDefault = styled.div`
 `;
 
 const Wrapper = styled.div`
-	width: 90%;
+	width: 100%;
 	margin: auto;
 	background-color: #FFFFFF;
 `;
@@ -161,6 +161,7 @@ const Header = styled.div`
 	background-color: #2874F0;
 	display: flex;
 	position: fixed;
+	z-index: 1000;
 	@media(min-width: 320px){
 		display: flex;
     height: 112px;
@@ -175,10 +176,8 @@ const Header = styled.div`
 		height: 56px;
 		justify-content: inherit;
 	}
-	
-	
 	text-transform: uppercase;
-	position: relative;
+	top: 0;
 `;
 
 const IconContainer = styled(flexDefault)`
@@ -301,8 +300,16 @@ const Content = styled.div`
 	flex-direction: row;
 	width: 100%;
 	flex-wrap: wrap;
-	margin-top: 20px;
+	margin-top: 70px;
 	justify-content: center;
+	
+	@media(min-width: 320px){
+		margin-top: 130px;
+	}
+	@media(min-width: 800px){
+		margin-top: 70px;
+	}
+	
 
 `;
 
