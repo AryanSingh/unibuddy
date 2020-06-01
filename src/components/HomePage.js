@@ -97,6 +97,14 @@ export class HomePage extends Component {
 		this.setState({ selectedBooks: newBooks })
 	};
 
+	renderPlaceholder = () => {
+		return(
+			<PlaceHolder>
+				<PlaceHolderText>You have no books in your list.</PlaceHolderText>
+			</PlaceHolder>
+		)
+	};
+
 	render(){
 		return (
 			<HomeContainer>
@@ -118,7 +126,7 @@ export class HomePage extends Component {
 								<BsSearch/>
 							</IconContext.Provider>
 							</SearchIcon>
-							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue}/>
+							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue} placeholder="Search for books..."/>
 							<Portal>
 							{this.state.dropdownCords.width && this.renderList()}
 							</Portal>
@@ -126,6 +134,7 @@ export class HomePage extends Component {
 					</Header>
 					<Content>
 							{this.state.selectedBooks.map((book, index) => <BookCard index={index} book={book} deleteBook={this.deleteBook}/>)}
+						{this.state.selectedBooks.length === 0 && this.renderPlaceholder()}
 					</Content>
 				</Wrapper>
 			</HomeContainer>
@@ -331,4 +340,19 @@ const BookListWrapper = styled.div`
 	margin-top: 20px;
 	justify-content: center;
 	position: relative;
-`
+`;
+
+const PlaceHolder = styled.div`
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	position: absolute;
+  top: 45%;
+	
+`;
+
+const PlaceHolderText = styled.p`
+	font-family: Roboto;
+	font-size: 20px;
+	font-weight: 500;
+`;
