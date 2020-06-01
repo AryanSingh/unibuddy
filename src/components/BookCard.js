@@ -26,7 +26,6 @@ const BookCard = (props) => {
 					<MdDelete  />
 				</IconContext.Provider>
 			</IconContainer>
-
 		</Wrapper>
 	)
 };
@@ -91,6 +90,10 @@ const Summary = styled.p`
 const IconContainer = styled.div`
 	
 `;
+
+const InsideWrapper = styled.div`
+	position: relative;
+`
 
 
 
