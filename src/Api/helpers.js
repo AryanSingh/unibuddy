@@ -148,8 +148,6 @@ export const find_relevant_results = (table, searchArr) => {
 	});
 
 	return find_common_elements(tempArr)
-
-
 	
 };
 
