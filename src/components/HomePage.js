@@ -5,7 +5,9 @@ import { BsSearch } from 'react-icons/bs';
 import { IconContext } from "react-icons";
 import BookCard from './BookCard';
 import Portal from './PortalWrapper';
+import PropTypes from 'prop-types';
 import Trap from 'react-trap'
+
 
 
 
@@ -46,6 +48,7 @@ export class HomePage extends Component {
 
 	componentDidMount(){
 		this.setCoords();
+		console.log('homepage props', this.props);
 	}
 
 
@@ -85,7 +88,7 @@ export class HomePage extends Component {
 
 	suggestionClickHandler = (result) => {
 		if(this.state.selectedBooks.filter(book => book.id=== result.id).length === 0){
-			let newBooks = [...this.state.selectedBooks, result]
+			let newBooks = [...this.state.selectedBooks, result];
 			this.setState({ selectedBooks: newBooks })
 		}
 		this.props.clearSearch();
@@ -144,6 +147,11 @@ export class HomePage extends Component {
 }
 
 export default HomePage;
+
+HomePage.propTypes = {
+
+};
+
 
 const HomeContainer = styled.div`
 	background-color: #FFFFFF;

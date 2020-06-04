@@ -48,7 +48,7 @@ export class App extends Component {
 	setResults = (searchResults) => {
 		let resultsArr = [];
 		searchResults.map((result) => {
-			resultsArr.push({ id: result, title: data.titles[result], summary: data.summaries[result]['summary']})
+			resultsArr.push({ id: result, title: data.titles[result], summary: data.summaries[result]['summary'], author: data.authors[result].author})
 		});
 		this.setState({ searchResults: resultsArr });
 
