@@ -71,6 +71,7 @@ export class HomePage extends Component {
 					return(
 						<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
 							<ItemTitle>{result.title}</ItemTitle>
+							<ItemTitle>author: {result.author}</ItemTitle>
 							<ItemSummary>{result.summary}</ItemSummary>
 						</ListItem>
 					)

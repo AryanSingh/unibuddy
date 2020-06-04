@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54e1347d-4540-42c3-92b5-975e925d9f0b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Api/wordHashCreator.js" afterPath="$PROJECT_DIR$/src/Api/wordHashCreator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.js" afterPath="$PROJECT_DIR$/src/App.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/BookCard.js" afterPath="$PROJECT_DIR$/src/components/BookCard.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HomePage.js" afterPath="$PROJECT_DIR$/src/components/HomePage.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -17,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="wordHashCreator.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wordHashCreator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Api/wordHashCreator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="12" column="87" lean-forward="false" selection-start-line="12" selection-start-column="87" selection-end-line="12" selection-end-column="87" />
+            <state relative-caret-position="622">
+              <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -39,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookCard.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BookCard.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/BookCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+            <state relative-caret-position="480">
+              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -54,8 +54,8 @@
       <file leaf-file-name="HomePage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/HomePage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
+            <state relative-caret-position="-698">
+              <caret line="84" column="19" lean-forward="true" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -113,8 +113,8 @@
       <file leaf-file-name="data.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/data.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9960">
-              <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+            <state relative-caret-position="552">
+              <caret line="342" column="5" lean-forward="true" selection-start-line="342" selection-start-column="5" selection-end-line="342" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -162,8 +162,8 @@
       <find>removePrepositio</find>
       <find>modified_binary_search</find>
       <find>sortFn</find>
-      <find>console.log</find>
       <find>console.</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>removePlural</replace>
@@ -199,12 +199,12 @@
         <option value="$PROJECT_DIR$/src/Api/test/ingester.test.js" />
         <option value="$PROJECT_DIR$/src/sample.json" />
         <option value="$PROJECT_DIR$/src/Api/test/wordHashCreator.test.js" />
-        <option value="$PROJECT_DIR$/src/components/BookCard.js" />
         <option value="$PROJECT_DIR$/src/components/PortalWrapper.js" />
-        <option value="$PROJECT_DIR$/src/components/HomePage.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Api/wordHashCreator.js" />
+        <option value="$PROJECT_DIR$/src/components/HomePage.js" />
+        <option value="$PROJECT_DIR$/src/components/BookCard.js" />
       </list>
     </option>
   </component>
@@ -375,12 +375,12 @@
       <workItem from="1591072795969" duration="9892000" />
       <workItem from="1591176700288" duration="1361000" />
       <workItem from="1591263608227" duration="8080000" />
-      <workItem from="1591283029495" duration="3820000" />
+      <workItem from="1591283029495" duration="4006000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131605000" />
+    <option name="totallyTimeSpent" value="131791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -705,26 +705,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Api/api.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/BookCard.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/HomePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="142" column="20" lean-forward="true" selection-start-line="142" selection-start-column="20" selection-end-line="142" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -780,20 +760,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Api/wordHashCreator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="27" column="24" lean-forward="true" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/data.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9960">
-          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        <state relative-caret-position="552">
+          <caret line="342" column="5" lean-forward="true" selection-start-line="342" selection-start-column="5" selection-end-line="342" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Api/wordHashCreator.js">
+    <entry file="file://$PROJECT_DIR$/src/components/HomePage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="12" column="87" lean-forward="false" selection-start-line="12" selection-start-column="87" selection-end-line="12" selection-end-column="87" />
+        <state relative-caret-position="-698">
+          <caret line="84" column="19" lean-forward="true" selection-start-line="84" selection-start-column="19" selection-end-line="84" selection-end-column="19" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/BookCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>

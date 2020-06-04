@@ -18,6 +18,7 @@ const BookCard = (props) => {
 		<Wrapper index={props.index}>
 			<HeadingWrapper>
 				<Title>{props.book.title}</Title>
+				<Title>{props.book.author}</Title>
 			</HeadingWrapper>
 			<SummaryWrapper>
 				<Summary>{modifySummary(props.book.summary)}</Summary>
