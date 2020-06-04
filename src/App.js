@@ -56,8 +56,8 @@ export class App extends Component {
 
 	hashCreate = () => {
 		let table = {};
-		data.summaries.map((summary) => {
-			table = createHash(table, summary)
+		data.summaries.map((summary, index) => {
+			table = createHash(table, summary, data.authors[index].author)
 		});
 		this.setState({ table: table });
 	};

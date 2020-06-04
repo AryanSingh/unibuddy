@@ -4,11 +4,13 @@ import {removePreposition} from "./tokenizer/prepsRemoveTokenizer";
 import {modified_binary_Search} from "./helpers";
 import {getAllSubstrings, mergeSortedArray, lowerCasing} from "./helpers";
 
-export const createHash = (hashObj, currentObj) => {
+export const createHash = (hashObj, currentObj, author) => {
+	console.log('hashobj', hashObj, currentObj, author);
 
 	let newObj = {...hashObj};
+	let splitStr = currentObj.summary + author
 
-	let modifiedSummary = ingester(lowerCasing, removePlural, removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));
+	let modifiedSummary = ingester(lowerCasing, removePlural, removePreposition)(splitStr.split(/[\s,\-\(\)\:\.]+/ ));
 	modifiedSummary.map((item) => {
 		if(item in newObj){
 			if(newObj[item].indexOf(currentObj.id) === -1){
