@@ -56,7 +56,7 @@ export class HomePage extends Component {
 			top: rect.y,
 			width: rect.width,
 			height: rect.height
-		}}, () => console.log('state', this.state));
+		}});
 	};
 
 	renderList = () => {

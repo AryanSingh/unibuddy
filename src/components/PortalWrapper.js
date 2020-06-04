@@ -5,7 +5,6 @@ const Portal = ({children}) => {
 	const mount = document.getElementsByClassName("App")[0];
 
 	const el = document.createElement("div");
-	console.log('mount', 'el', mount, el);
 
 	useEffect(() => {
 		if(mount){mount.appendChild(el)};

@@ -53,7 +53,6 @@ export const binary_Search = function(items, value){
 
 export const find_common_elements = (array) => {
 	// let array = Array.prototype.slice.call(arr);
-	console.log('array', array);
 	let commonElements = [];
 
 	let firstArr = array[0];
@@ -70,7 +69,6 @@ export const find_common_elements = (array) => {
 		}
 		firstArr = commonElements;
 	}
-	console.log('common elements', commonElements);
 	return commonElements;
 
 };
@@ -146,9 +144,10 @@ export const find_relevant_results = (table, searchArr) => {
 
 		}
 	});
+	// console.log('find_releveant_results', find_common_elements(tempArr));
 
 	return find_common_elements(tempArr)
-	
+
 };
 
 
