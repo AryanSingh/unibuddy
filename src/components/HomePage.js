@@ -48,7 +48,9 @@ export class HomePage extends Component {
 
 	componentDidMount(){
 		this.setCoords();
-		console.log('homepage props', this.props);
+	}
+
+	componentDidUpdate(prevProps, prevState){
 	}
 
 
@@ -149,7 +151,15 @@ export class HomePage extends Component {
 export default HomePage;
 
 HomePage.propTypes = {
-
+	clearSearch: PropTypes.func,
+	hashTable: PropTypes.object,
+	searchResults: PropTypes.arrayOf(PropTypes.shape({
+		id: PropTypes.number,
+		title: PropTypes.string,
+		summary: PropTypes.string,
+		author: PropTypes.string
+	})),
+	setCurrentSearch: PropTypes.func
 };
 
 

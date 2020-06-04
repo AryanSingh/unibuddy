@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {modifySummary} from "../Api/helpers";
 import { MdDelete } from 'react-icons/md';
 import { IconContext } from "react-icons";
+import PropTypes from 'prop-types';
 
 
 
@@ -31,6 +32,17 @@ const BookCard = (props) => {
 };
 
 export default BookCard;
+
+BookCard.propTypes = {
+	index: PropTypes.number,
+	book: PropTypes.shape({
+		id: PropTypes.number,
+		title: PropTypes.string,
+		summary: PropTypes.string,
+		author: PropTypes.string
+	}),
+	deleteBook: PropTypes.func
+};
 
 
 export const Wrapper = styled.div`
@@ -99,7 +111,7 @@ const IconContainer = styled.div`
 
 const InsideWrapper = styled.div`
 	position: relative;
-`
+`;
 
 
 

@@ -6,8 +6,6 @@ import {getAllSubstrings, mergeSortedArray, lowerCasing} from "./helpers";
 
 export const createHash = (hashObj, currentObj) => {
 
-	console.log('createHashfunction', hashObj, currentObj);
-
 	let newObj = {...hashObj};
 
 	let modifiedSummary = ingester(lowerCasing, removePlural, removePreposition)(currentObj.summary.split(/[\s,\-\(\)\:\.]+/));

@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from 'prop-types';
+
 
 const Portal = ({children}) => {
 	const mount = document.getElementsByClassName("App")[0];
@@ -15,3 +17,8 @@ const Portal = ({children}) => {
 };
 
 export default Portal;
+
+
+Portal.propTypes = {
+	children: PropTypes.element
+};
