@@ -5,8 +5,6 @@ import {modified_binary_Search} from "./helpers";
 import {getAllSubstrings, mergeSortedArray, lowerCasing} from "./helpers";
 
 export const createHash = (hashObj, currentObj, author) => {
-	console.log('hashobj', hashObj, currentObj, author);
-
 	let newObj = {...hashObj};
 	let splitStr = currentObj.summary + author
 

@@ -8,10 +8,6 @@ import Portal from '../PortalWrapper/PortalWrapper';
 import PropTypes from 'prop-types';
 import Trap from 'react-trap'
 
-
-
-
-
 export class HomePage extends Component {
 
 	constructor(props){
@@ -134,7 +130,7 @@ export class HomePage extends Component {
 							</SearchIcon>
 							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue} placeholder="Search for books..."/>
 							<Portal>
-							{this.state.dropdownCords.width && this.renderList()}
+								{this.state.dropdownCords.width && this.renderList()}
 							</Portal>
 						</InputContainer>
 					</Header>
@@ -347,18 +343,6 @@ const Content = styled.div`
 		margin-top: 70px;
 		justify-content: flex-start;
 	}
-	
-
-`;
-
-const BookListWrapper = styled.div`
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	flex-wrap: wrap;
-	margin-top: 20px;
-	justify-content: center;
-	position: relative;
 `;
 
 const PlaceHolder = styled.div`
