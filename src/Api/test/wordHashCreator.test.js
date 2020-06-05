@@ -3,7 +3,7 @@ import {createHash} from "../wordHashCreator";
 
 test('hash creator function should create correct hash and store the correct ids', () => {
 	// expect
-	expect(createHash({}, {id: 0, summary: 'arya is a good boys'})).toStrictEqual(
+	expect(createHash({}, {id: 0, summary: 'arya is a good boys.'}, 'ary')).toStrictEqual(
 		{
 			'ary': [0],
 			'arya': [0],
@@ -27,8 +27,8 @@ test('hash creator function should create correct hash and store the correct ids
 			'ood': [0]
 		},
 		{
-			id: 1, summary: 'arya good man'
-		}
+			id: 1, summary: 'arya good man.',
+		}, 'ary'
 	)).toStrictEqual(
 		{
 			'ary': [0, 1],

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { TiMessages } from 'react-icons/ti';
 import { BsSearch } from 'react-icons/bs';
 import { IconContext } from "react-icons";
-import BookCard from './BookCard';
-import Portal from './PortalWrapper';
+import BookCard from '../BookCard/BookCard';
+import Portal from '../PortalWrapper/PortalWrapper';
 import PropTypes from 'prop-types';
 import Trap from 'react-trap'
 

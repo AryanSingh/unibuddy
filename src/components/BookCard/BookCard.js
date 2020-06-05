@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {modifySummary} from "../Api/helpers";
+import {modifySummary} from "../../Api/helpers";
 import { MdDelete } from 'react-icons/md';
 import { IconContext } from "react-icons";
 import PropTypes from 'prop-types';
@@ -15,8 +15,8 @@ const BookCard = (props) => {
 
 
 	return(
-		<Wrapper index={props.index}>
-			<HeadingWrapper>
+		<Wrapper data-testid="bookCardWrapper" index={props.index}>
+			<HeadingWrapper data-testid="titleAuthorWrapper">
 				<Title>{props.book.title}</Title>
 				<Title>{props.book.author}</Title>
 			</HeadingWrapper>

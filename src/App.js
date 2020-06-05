@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import data from './data.json';
 import {createHash} from "./Api/wordHashCreator";
-import HomePage from './components/HomePage';
+import HomePage from './components/HomePage/HomePage';
 import { find_relevant_results} from "./Api/helpers";
 
 export class App extends Component {
