@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import data from './data.json';
 import {createHash} from "./Api/wordHashCreator";
@@ -21,7 +20,6 @@ export class App extends Component {
 		if(prevState.currentSearch !== this.state.currentSearch){
 			this.doSearch();
 		}
-
 	}
 
 	componentDidMount(){
