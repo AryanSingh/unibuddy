@@ -6,14 +6,9 @@ import { IconContext } from "react-icons";
 import PropTypes from 'prop-types';
 
 
-
+//book card component is used for displaying the individual book data, it takes the book data and a callback function which deletes the book as arguments. BookCard component is responsive to mobile, tablet and desktop screen sizes.
 
 const BookCard = (props) => {
-	let book = {...props};
-	console.log('props', props, book);
-
-
-
 	return(
 		<Wrapper data-testid="bookCardWrapper" index={props.index}>
 			<HeadingWrapper data-testid="titleAuthorWrapper">

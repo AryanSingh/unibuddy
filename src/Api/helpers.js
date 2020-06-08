@@ -1,5 +1,7 @@
 import {removePreposition} from "./tokenizer/prepsRemoveTokenizer";
 
+// this function takes an array of sorted items and a value to be inserted into the items array. It gives out the position where the index at which value should be inserted
+
 export const modified_binary_Search = function(items, value){
 	let firstIndex  = 0,
 		lastIndex   = items.length - 1,
@@ -29,6 +31,8 @@ export const modified_binary_Search = function(items, value){
 };
 
 
+//function takes search for "value" in "items" array, if it founds it returns the index otherwise -1
+
 export const binary_Search = function(items, value){
 	var firstIndex  = 0,
 		lastIndex   = items.length - 1,
@@ -50,6 +54,9 @@ export const binary_Search = function(items, value){
 
 	return (items[middleIndex] !== value) ? -1 : middleIndex;
 };
+
+// the function takes an array of array of indexes. It finds out the common indexes between the array of indexes and returns the common elements
+//e.g it would take ([[1, 2, 3, 4], [2, 3, 4], [3, 4]]) and return ([3, 4])
 
 export const find_common_elements = (array) => {
 	// let array = Array.prototype.slice.call(arr);
@@ -73,6 +80,8 @@ export const find_common_elements = (array) => {
 
 };
 
+// the getAllsubstrings method finds all the substrings of string greater than length 3. We use the all the substrings as keys to store the indexes of summary in which the word was present.
+
 export const getAllSubstrings = (str) => {
 	let i, j, result = [];
 
@@ -86,8 +95,10 @@ export const getAllSubstrings = (str) => {
 	return result;
 };
 
+// the function takes tow sorted array and merges them and returns a new sorted array
+
 export const mergeSortedArray = (a, b) => {
-	var sorted = [], indexA = 0, indexB = 0;
+	let sorted = [], indexA = 0, indexB = 0;
 
 	while (indexA < a.length && indexB < b.length) {
 		if (sortFn(a[indexA], b[indexB]) > 0 && sorted.indexOf(b[indexB]) === -1) {
@@ -103,14 +114,12 @@ export const mergeSortedArray = (a, b) => {
 				sorted.push(b[i])
 			}
 		}
-		// sorted = sorted.concat(b.slice(indexB));
 	} else {
 		for(let i=indexA; i<a.length; i++){
 			if(sorted.indexOf(a[i]) === -1){
 				sorted.push(a[i])
 			}
 		}
-		// sorted = sorted.concat(a.slice(indexA));
 	}
 
 	return sorted;
@@ -119,6 +128,8 @@ export const mergeSortedArray = (a, b) => {
 export const sortFn = (a, b) => {
 	return a - b;
 };
+
+// the modify Summary function
 
 export const modifySummary = (str) => {
 	if(str.length > 500){
@@ -129,26 +140,26 @@ export const modifySummary = (str) => {
 
 // console.log(mergeSortedArray([1,2,3,5,9],[4,6,7,8]));
 
+// the function takes the word has table and the search string being typed in the search bar. The function gets array of words present in the search bar. It looks up the words in the hash map, finds the array of summaries' indexes where it is present, finds out the common elements between them and returns it.
+
 
 export const find_relevant_results = (table, searchArr) => {
 	let tempArr = [];
-	// console.log('relevant results', table, searchArr)
-	let allKeys = Object.keys(table);
 	let newSearchArr = removePreposition(searchArr);
 
 	
 	newSearchArr.map((item) => {
-		// console.log('item', table[item]);
 		if(table[item]){tempArr.push(table[item])}
 		else{
 
 		}
 	});
-	// console.log('find_releveant_results', find_common_elements(tempArr));
 
 	return find_common_elements(tempArr)
 
 };
+
+// the function takes an array of strings and converts each one of them lowercase
 
 
 export const lowerCasing = (arr) => {
@@ -159,4 +170,3 @@ export const lowerCasing = (arr) => {
 };
 
 
-// console.log('common elements', find_common_elements([[1, 2, 3, 4, 5], [2, 3, 4, 5], [3, 5, 7], [5, 7, 9]]));

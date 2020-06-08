@@ -6,7 +6,9 @@ import { IconContext } from "react-icons";
 import BookCard from '../BookCard/BookCard';
 import Portal from '../PortalWrapper/PortalWrapper';
 import PropTypes from 'prop-types';
-import Trap from 'react-trap'
+
+// the homepage is where most of the work happens, search bar exists in homepage, list of books gets rendered here. It recieves the hashtable, clearSearch callback function(it cleas the search input and current search results), searchResults (results corresponding to the current search string), setCurrentSearch (callback which takes the value of the currently typed search string in search input and sets it in app.js which leads to new search results being calculated)
+
 
 export class HomePage extends Component {
 
@@ -46,10 +48,6 @@ export class HomePage extends Component {
 		this.setCoords();
 	}
 
-	componentDidUpdate(prevProps, prevState){
-	}
-
-
 	setCoords = () => {
 		const rect = this.inputRef.current.getBoundingClientRect();
 		this.setState({dropdownCords: {
@@ -77,7 +75,6 @@ export class HomePage extends Component {
 	};
 
 	handleChange = (value) => {
-		// console.log('value change', value);
 		this.setState({
 			inputValue: value
 		});
