@@ -24,17 +24,22 @@ export class HomePage extends Component {
 
 	};
 
+
+	// two listeners are added in component will mount. One listens to the mousedown event so as to judge if to close the search dropwdown if the click is outside it. The second listener listens to the window resize event and calculates the cords for the search dropdown positioning.
+
 	componentWillMount(){
 		document.addEventListener('mousedown', this.handleClick, false);
 		window.addEventListener('resize', this.setCoords, false);
 	}
 
+	//both event listeners are removed before the component is unmounted
+
 	componentWillUnmount(){
 		document.removeEventListener('mousedown', this.handleClick, false);
 		window.removeEventListener('resize', this.setCoords, false);
-
-
 	}
+
+	//handle click is the listener function for the mousedown event for the searh dropdown. If search dropdown is open and click is detected outside it, the dropdown is closed and the search results cleared.
 
 	handleClick = (e) => {
 		if(this.node.contains(e.target)){
@@ -44,9 +49,14 @@ export class HomePage extends Component {
 		}
 	};
 
+
+	//coordinates for rendering the dropdown are calculated
+
 	componentDidMount(){
 		this.setCoords();
 	}
+
+	// the setCoords is the listener funtion for the window resize event. If application/browser window is resized the corodinates are recalculated to corrrectly position the search dropdwon with respect to the search input
 
 	setCoords = () => {
 		const rect = this.inputRef.current.getBoundingClientRect();
@@ -57,6 +67,8 @@ export class HomePage extends Component {
 			height: rect.height
 		}});
 	};
+
+	//renderList creates the list of bookcards and renders it.
 
 	renderList = () => {
 		return(
@@ -74,6 +86,8 @@ export class HomePage extends Component {
 		)
 	};
 
+	//handle change listens to the change in input value in search box and sets the new search value in the local state which leads to relcalcuation of search results
+
 	handleChange = (value) => {
 		this.setState({
 			inputValue: value
@@ -81,6 +95,9 @@ export class HomePage extends Component {
 
 		this.props.setCurrentSearch(value);
 	};
+
+
+	//this is listener function to mouse clicks on the search suggestions, if any suggestion is clicked, it checks if the book had been selected earlier, if not it adds the book to the book list. After that it clears the current search input and clears the search results from the memory
 
 	suggestionClickHandler = (result) => {
 		if(this.state.selectedBooks.filter(book => book.id=== result.id).length === 0){
@@ -91,10 +108,14 @@ export class HomePage extends Component {
 		this.setState({inputValue: '', listOpen: false})
 	};
 
+	//delete book deltes a book from the local state. the function is passed down to bookCard which calls it when a books needs to be deleted
+
 	deleteBook = (book) => {
 		let newBooks = this.state.selectedBooks.filter(item => book.id !== item.id);
 		this.setState({ selectedBooks: newBooks })
 	};
+
+	// if there are no selected books in the list of user, it shows a default text.
 
 	renderPlaceholder = () => {
 		return(

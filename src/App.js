@@ -16,19 +16,28 @@ export class App extends Component {
 		}
 	}
 
+
+	//this listens to the changes in the input search string and firest up the doSearch function which calculates fresh search results on basis of current search string
+
 	componentDidUpdate(prevProps, prevState){
 		if(prevState.currentSearch !== this.state.currentSearch){
 			this.doSearch();
 		}
 	}
 
+	// after component gets mounted the function hashCreate is called which starts the building of the in memory hashmap
+
+
 	componentDidMount(){
 		this.hashCreate()
 	}
 
+
 	setCurrentSearch = (search) => {
 		this.setState({ currentSearch: search })
 	};
+
+	// the function clearSearch clears the search string from input box and search results stored in memory when user clicks on any search result from the dropdown
 
 	clearSearch = () => {
 		this.setState({
@@ -37,12 +46,16 @@ export class App extends Component {
 		})
 	};
 
+	// doSearch method takes the current search string which is stored in local string, splits it into words(keys) array, takes the in memory hash map and calculates the serach results using the find_relevant_results helper function
+
 	doSearch = () => {
 		let searchArr = this.state.currentSearch.split(' ');
 		let results = find_relevant_results(this.state.table, searchArr);
 		this.setResults(results);
 	};
 
+
+	// set results takes the result(id) returned by the doSearch function, creates the complete book object using the id and the data.json file and creates a result array which is then stored in the local state.
 	setResults = (searchResults) => {
 		let resultsArr = [];
 		searchResults.map((result) => {
@@ -51,6 +64,10 @@ export class App extends Component {
 		this.setState({ searchResults: resultsArr });
 
 	};
+
+
+	//hashCreate function creates the new hash table from scratch when the component mounts. It uses the createHash function
+
 
 	hashCreate = () => {
 		let table = {};
