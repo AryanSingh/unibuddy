@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BookCard from './BookCard';
 import PropTypes from 'prop-types';
+import '@testing-library/jest-dom';
+import '@testing-library/jest-dom/extend-expect';
+// NOTE: jest-dom adds handy assertions to Jest and is recommended, but not required
+
+import {render, fireEvent, screen} from '@testing-library/react'
 
 
 
@@ -22,3 +27,5 @@ it("renders without crashing", () => {
 // 	}),
 // 	deleteBook: PropTypes.func
 // };
+
+//clicking on delete of bookcard should delete it

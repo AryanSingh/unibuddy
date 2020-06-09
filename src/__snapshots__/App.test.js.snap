@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should take a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <div
+      class="sc-Axmtr kVFppU"
+    >
+      <div
+        class="sc-fzozJi gqLYgC"
+      >
+        <div
+          class="sc-fzpans hjdcjk"
+        >
+          <div
+            class="sc-fzoLsD jrOMKf"
+          >
+            <div
+              class="sc-AxmLO sc-fzplWN gsWcdK"
+            >
+              <svg
+                baseProfile="tiny"
+                class="global-class-name"
+                fill="currentColor"
+                height="40"
+                stroke="currentColor"
+                stroke-width="0"
+                style="color: rgb(255, 255, 255);"
+                version="1.2"
+                viewBox="0 0 24 24"
+                width="40"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 7h-3c0-1.65-1.35-3-3-3h-12c-1.65 0-3 1.35-3 3v7c0 1.65 1.35 3 3 3v3l3-3c0 1.65 1.35 3 3 3h8l3 3v-3h1c1.65 0 3-1.35 3-3v-7c0-1.65-1.35-3-3-3zm-18 8c-.542 0-1-.458-1-1v-7c0-.542.458-1 1-1h12c.542 0 1 .458 1 1v1h-6.5c-1.379 0-2.5 1.121-2.5 2.5v4.5h-4zm19 2c0 .542-.458 1-1 1h-12c-.542 0-1-.458-1-1v-6.5c0-.827.673-1.5 1.5-1.5h11.5c.542 0 1 .458 1 1v7z"
+                />
+              </svg>
+            </div>
+            <div
+              class="sc-AxmLO sc-fznyAO euwpmC"
+            >
+              <p
+                class="sc-fznKkj cLVatu"
+              >
+                Unibuddy
+              </p>
+            </div>
+          </div>
+          <div
+            class="sc-AxmLO sc-fznZeY kdfkDc"
+          >
+            <div
+              class="sc-fzqBZW gbhxug"
+            >
+              <svg
+                class="global-class-name"
+                fill="currentColor"
+                height="20"
+                stroke="currentColor"
+                stroke-width="0"
+                style="color: rgb(40, 116, 240);"
+                viewBox="0 0 16 16"
+                width="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
+                  fill-rule="evenodd"
+                />
+                <path
+                  clip-rule="evenodd"
+                  d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <input
+              class="sc-fzokOt fWfbKF"
+              data-testid="searchInput"
+              placeholder="Search for books..."
+              value=""
+            />
+          </div>
+        </div>
+        <div
+          class="sc-fzpjYC dUuFri"
+        >
+          <div
+            class="sc-fznxsB ibcQOo"
+          >
+            <p
+              class="sc-fznJRM igkFHA"
+            >
+              You have no books in your list.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      0
+    </div>
+  </div>
+</DocumentFragment>
+`;

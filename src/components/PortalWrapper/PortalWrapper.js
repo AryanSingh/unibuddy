@@ -11,6 +11,7 @@ const Portal = ({children}) => {
 	const mount = document.getElementsByClassName("App")[0];
 
 	const el = document.createElement("div");
+	el["data-testid"] = "portal";
 
 	useEffect(() => {
 		if(mount){mount.appendChild(el)};

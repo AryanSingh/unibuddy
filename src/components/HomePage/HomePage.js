@@ -72,10 +72,10 @@ export class HomePage extends Component {
 
 	renderList = () => {
 		return(
-			<ListWrapper ref={node => this.node = node} cords={this.state.dropdownCords}>
+			<ListWrapper data-testid="listWrapper" ref={node => this.node = node} cords={this.state.dropdownCords}>
 				{this.props.searchResults.map((result) => {
 					return(
-						<ListItem key={result.id} onClick={() => this.suggestionClickHandler(result)}>
+						<ListItem data-testid={result.author} key={result.id} onClick={() => this.suggestionClickHandler(result)}>
 							<ItemTitle>{result.title}</ItemTitle>
 							<ItemTitle>author: {result.author}</ItemTitle>
 							<ItemSummary>{result.summary}</ItemSummary>
@@ -146,8 +146,8 @@ export class HomePage extends Component {
 								<BsSearch/>
 							</IconContext.Provider>
 							</SearchIcon>
-							<Input onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue} placeholder="Search for books..."/>
-							<Portal>
+							<Input data-testid="searchInput" onChange={(event) => this.handleChange(event.target.value)} value={this.state.inputValue} placeholder="Search for books..."/>
+							<Portal data-testid="dropdownPortal">
 								{this.state.dropdownCords.width && this.renderList()}
 							</Portal>
 						</InputContainer>
